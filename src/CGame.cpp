@@ -73,14 +73,6 @@ void CGame::game_game()
 		flow = false;
 	}
 	
-	EItem **item = Map.getMap();
-	
-	for (int i = 0; i < Map.getWidth(); i++)
-	{
-		for (int j = 0; j < Map.getHeight(); j++)
-		{
-			allegro_message("%d", item[i][j]);
-		}
-	}
+	Map.show(App->GetBuffer());
 }
 

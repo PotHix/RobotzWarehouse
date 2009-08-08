@@ -30,6 +30,8 @@
 	// Getters
 	int getX();
 	int getY();
+	
+	void show(BITMAP *buffer);
  };
  
  
