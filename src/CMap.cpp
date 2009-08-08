@@ -30,14 +30,14 @@ void CMap::initMatrix(){
    }
 }
 
-void CMap::getMap(){
+EItem** CMap::getMap(){
    return items;
 }
 
-void CMap::getWidth(int w){
+int CMap::getWidth(){
    return width;
 }
 
-void CMap::getHeight(int h){
+int CMap::getHeight(){
    return height;
 }
