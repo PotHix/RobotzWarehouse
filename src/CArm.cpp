@@ -12,10 +12,18 @@ CArm::CArm(){
    sprite = new AnimSprite();
 }
 
-void CMap::setX(int px){
+void CArm::setX(int px){
    x = px;
 }
 
-void CMap::setY(int py){
+void CArm::setY(int py){
    y = py;
+}
+
+int CArm::getX(){
+   return x;
+}
+
+int CArm::getY(){
+   return y;
 }
