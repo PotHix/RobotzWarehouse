@@ -12,14 +12,6 @@ CMap::CMap(){
    initMatrix();
 }
 
-void CMap::setWidth(int w){
-   width = w;
-}
-
-void CMap::setHeight(int h){
-   height = h;
-}
-
 void CMap::show(BITMAP *buffer){
    for(int i=0; i < width; i++){
       for(int j=0; j< height; j++){
@@ -42,10 +34,36 @@ EItem** CMap::getMap(){
    return items;
 }
 
+//Setters
+void CMap::setWidth(int w){
+   width = w;
+}
+
+void CMap::setHeight(int h){
+   height = h;
+}
+
+void CMap::setX(int px){
+   x = px;
+}
+
+void CMap::setY(int py){
+   y = py;
+}
+
+//Getters
 int CMap::getWidth(){
    return width;
 }
 
 int CMap::getHeight(){
    return height;
+}
+
+int CMap::getX(){
+   return x;
+}
+
+int CMap::getY(){
+   return y;
 }
