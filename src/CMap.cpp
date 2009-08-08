@@ -20,6 +20,14 @@ void CMap::setHeight(int h){
    height = h;
 }
 
+void CMap::show(BITMAP *buffer){
+   for(int i=0; i < width; i++){
+      for(int j=0; j< height; j++){
+         circlefill(buffer, (i*30)+20, (j*30)+20, 15, 0xFF0000);
+      }
+   }
+}
+
 void CMap::initMatrix(){
    items = new EItem*[width];
    for(int i=0; i < width; i++){
