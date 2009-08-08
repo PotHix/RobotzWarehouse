@@ -11,7 +11,9 @@ Ideias para o projeto
    - 
 
 História
-   - 
+   - Um robo é programado para cuidar de um armazem, e seu trabalho é sempre encher o armazem colocando <os objetos> nos lugares corretos
+   assim deixando o armazém fácil para se andar. O Robô escolhe sua própria ordem para colocar <os objetos> assim tentando criar uma ordem
+   inovadora para que <os objetos> fiquem melhores dispostos. A visão do Robo nunca é uma das melhores, portanto cabe ao jogador organizar
+   da melhor maneira possível, assim ganhando pontos de acordo com as formas de disposição <dos objetos>
 
 Regras
-   - 
