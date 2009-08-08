@@ -28,7 +28,7 @@
 	void setHeight(int h);
 	
 	void initMatrix();
- }
+ };
  
  
  
