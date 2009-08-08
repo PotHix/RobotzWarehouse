@@ -28,7 +28,7 @@ void CGame::run()
 	
 	while (flow)
 	{
-		App->ClearBuffer(0xFF00FF);
+		App->ClearBuffer(0xFFFFFF);
 	
 		switch(game_status)
 		{
@@ -70,7 +70,5 @@ void CGame::game_game()
 	{
 		flow = false;
 	}
-
-	textprintf_ex(App->GetBuffer(), font, 10, 10, 0xFFFFFF, -1, "Sei la");
 }
 

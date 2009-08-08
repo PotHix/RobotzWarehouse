@@ -1,11 +1,7 @@
-/*
- * 
- * 
+/**
+ * GameJam 2009 - GamePlay
  *
- * 
- *
- *
- *
+ * The map class file.
  */
 
 #include <CMap.h>
