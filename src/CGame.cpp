@@ -79,7 +79,7 @@ void CGame::game_game()
 	{
 		for (int j = 0; j < Map.getHeight(); j++)
 		{
-			allegro_message(item[i][j]);
+			allegro_message("%d", item[i][j]);
 		}
 	}
 }
