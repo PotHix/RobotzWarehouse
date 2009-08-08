@@ -24,6 +24,8 @@ class CMap
       EItem **items;
 
       int width, height;
+	  
+	  int x, y;
 
    public:
       CMap();
@@ -33,10 +35,19 @@ class CMap
       // Setters
       void setWidth(int w);
       void setHeight(int h);
+	  
+	  void setX(int px);
+	  void setY(int py);
 
       // Getters
       int getWidth();
       int getHeight();
+	  
+	  int getX();
+	  int getY();
+	  
+	  void center();	
+	  
       EItem **getMap();
 
       void show(BITMAP *buffer);
