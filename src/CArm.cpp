@@ -13,16 +13,19 @@ CArm::CArm(){
 }
 
 void CArm::armAction(CMap &map){
-   int rx, ry;
-   EItem** b;
-   do{
-      rx = rand() % map.getWidth();
-      ry = rand() % map.getHeight();
-      b = map.getMap();
-   }while(b[rx][ry] != EITEM_NULL);
-   
-   int type = (rand() % MAX_ITEMS) + 1;
-   b[rx][ry] = (EItem)type;
+	if (map.getFull() == false)
+	{
+	   int rx, ry;
+	   EItem** b;
+	   do{
+		  rx = rand() % map.getWidth();
+		  ry = rand() % map.getHeight();
+		  b = map.getMap();
+	   }while(b[rx][ry] != EITEM_NULL);
+	   
+	   int type = (rand() % MAX_ITEMS) + 1;
+	   b[rx][ry] = (EItem)type;
+	}
 }
 
 //Setters

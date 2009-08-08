@@ -83,6 +83,7 @@ void CGame::game_game()
 	}
 	
 	Map.show(App->GetBuffer());
+	Map.update();
 	
 	App->ShowMouse();
 }

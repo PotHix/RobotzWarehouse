@@ -7,8 +7,10 @@
 #include "CMap.h"
 
 CMap::CMap(){
-   setWidth(4);
-   setHeight(4);
+	full = false;
+
+   setWidth(14);
+   setHeight(14);
    
    setX(0);
    setY(0);
@@ -67,6 +69,10 @@ void CMap::setY(int py){
    y = py;
 }
 
+void CMap::setFull(bool op) {
+	full = op;
+}
+
 //Getters
 int CMap::getWidth(){
    return width;
@@ -82,4 +88,28 @@ int CMap::getX(){
 
 int CMap::getY(){
    return y;
+}
+
+bool CMap::getFull(){
+	return full;
+}
+
+void CMap::update() {
+	int empty = 0;
+	
+	for (int i = 0; i < width; i++)
+	{
+		for (int j = 0; j < height; j++)
+		{
+			if (items[i][j] != EITEM_NULL)
+			{
+				empty++;
+			}
+		}
+	}
+	
+	if (empty == width * height)
+	{
+		setFull(true);
+	}
 }

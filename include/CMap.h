@@ -31,6 +31,8 @@ class CMap
       int width, height;
 	  
 	  int x, y;
+	  
+	  bool full;
 
    public:
       CMap();
@@ -43,6 +45,8 @@ class CMap
 	  
 	  void setX(int px);
 	  void setY(int py);
+	  
+	  void setFull(bool op);
 
       // Getters
       int getWidth();
@@ -51,11 +55,15 @@ class CMap
 	  int getX();
 	  int getY();
 	  
+	  bool getFull();
+	  
 	  void center();	
 	  
       EItem **getMap();
 
       void show(BITMAP *buffer);
+	  
+	  void update();
 };
 
 
