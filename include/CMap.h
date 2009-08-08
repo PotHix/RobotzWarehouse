@@ -24,10 +24,16 @@
  public:
 	CMap();
 	
+	void initMatrix();
+	
+	// Setters
 	void setWidth(int w);
 	void setHeight(int h);
 	
-	void initMatrix();
+	// Getters
+	int getWidth();
+	int getHeight();
+	EItem **getMap();
  };
  
  

@@ -10,6 +10,7 @@
  #include <allegro.h>
  
  #include "CApp.h"
+ #include "CMap.h"
  
  // This enum stores all the stats of the machine
  enum GameStatus
@@ -34,6 +35,9 @@
 	
 	// Buffer for double buffering
 	BITMAP *buffer;	
+	
+	// Maps test
+	CMap Map;
 	
  public:
  

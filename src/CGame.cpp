@@ -19,6 +19,8 @@ CGame::CGame()
 
 	game_status = GAME_GAME;
 	
+	// Maps test
+	
 	flow = true;
 }
 
@@ -69,6 +71,16 @@ void CGame::game_game()
 	if (key[KEY_ESC])
 	{
 		flow = false;
+	}
+	
+	EItem **item = Map.getMap();
+	
+	for (int i = 0; i < Map.getWidth(); i++)
+	{
+		for (int j = 0; j < Map.getHeight(); j++)
+		{
+			allegro_message(item[i][j]);
+		}
 	}
 }
 
