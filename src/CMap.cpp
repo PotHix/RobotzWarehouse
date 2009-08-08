@@ -10,6 +10,7 @@ CMap::CMap(){
    setWidth(2);
    setHeight(2);
    initMatrix();
+   center();
 }
 
 void CMap::show(BITMAP *buffer){
@@ -28,6 +29,15 @@ void CMap::initMatrix(){
          items[i][j] = EITEM_NULL;
       }
    }
+}
+
+void CMap::center(){
+   int bw, bh; 
+   bw = width * 2 + (width -1) * 2 + width;
+   bh = height * 2 + (height -1) * 2 + height;
+
+   x = (screen->width-bw)/2;
+   y = (screen->height-bh)/2;
 }
 
 EItem** CMap::getMap(){
