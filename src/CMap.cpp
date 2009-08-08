@@ -4,7 +4,7 @@
  * The map class file.
  */
 
-#include <CMap.h>
+#include "CMap.h"
 
 CMap::CMap(){
    setWidth(2);
@@ -21,7 +21,7 @@ void CMap::setHeight(int h){
 }
 
 void CMap::initMatrix(){
-   items = EItem*[width]
+   items = new EItem*[width];
    for(int i=0; i < width; i++){
       items[i] = new EItem[height];
       for(int j=0; j < height; j++){
