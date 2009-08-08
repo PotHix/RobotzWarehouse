@@ -20,6 +20,7 @@ CGame::CGame()
 	game_status = GAME_GAME;
 	
 	// Maps test
+        Arm = new CArm();
 	
 	flow = true;
 }
@@ -74,6 +75,11 @@ void CGame::game_game()
 	{
 		flow = false;
 	}
+
+	if (key[KEY_SPACE])
+        {
+           Arm->armAction(Map);
+        }
 	
 	Map.show(App->GetBuffer());
 }

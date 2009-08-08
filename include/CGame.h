@@ -11,6 +11,7 @@
  
  #include "CApp.h"
  #include "CMap.h"
+ #include "CArm.h"
  
  // This enum stores all the stats of the machine
  enum GameStatus
@@ -39,6 +40,7 @@
 	// Maps test
 	CMap Map;
 	
+        CArm *Arm;
  public:
  
 	CGame();
