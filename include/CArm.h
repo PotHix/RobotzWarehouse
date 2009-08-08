@@ -31,6 +31,8 @@
 	int getX();
 	int getY();
 	
+	void armAction(CMap &map);
+	
 	void show(BITMAP *buffer);
  };
  

@@ -9,14 +9,25 @@
 CMap::CMap(){
    setWidth(2);
    setHeight(2);
-   initMatrix();
+   
+   setX(0);
+   setY(0);
+   
    center();
+   initMatrix();
 }
 
 void CMap::show(BITMAP *buffer){
    for(int i=0; i < width; i++){
       for(int j=0; j< height; j++){
-         circlefill(buffer, x+(i*RADIUS*2)+ (i == 0 ? RADIUS : RADIUS*2), y+(j*RADIUS*2)+ (j == 0 ? RADIUS : RADIUS*2), RADIUS, 0xFF0000);
+         circlefill(buffer, x+GET_I, y+GET_J, RADIUS, 0xFF0000);
+		 
+		 if (items[i][j] == EITEM_A) {
+			circlefill(buffer, x + GET_I, y + GET_J, 6, 0xFFAAAA);
+		 } else if (items[i][j] == EITEM_A) {
+			circlefill(buffer, x + GET_I, y + GET_J, 6, 0xAAFFAA);
+		 }
+		 
       }
    }
 }
@@ -32,10 +43,8 @@ void CMap::initMatrix(){
 }
 
 void CMap::center(){
-   x = 0; 
-   y = 0; 
-
-   allegro_message("%d e %d", x,y);
+   x = (800 - (width * RADIUS * 2 * 1.3)) / 2;
+   y = (600 - (height * RADIUS * 2 * 1.3)) / 2;
 }
 
 EItem** CMap::getMap(){

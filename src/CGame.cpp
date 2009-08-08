@@ -54,6 +54,8 @@ void CGame::run()
 		App->Refresh();
 	}
 	
+	exit(-1);
+	
 }
 
 void CGame::game_open()
