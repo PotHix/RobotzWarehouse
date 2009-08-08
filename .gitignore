@@ -1,3 +1,5 @@
 obj/*
 bin/*
 makefile
+*.swp
+*.swo
