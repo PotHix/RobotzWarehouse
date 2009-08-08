@@ -1,0 +1,17 @@
+Ideias para o projeto
+   - Robos não tem ideias inovadoras nem criativas
+   - Usar braço mecânico
+   - Usar um robô que faz as coisas erradas e o player tem que arrumá-las de uma forma melhor
+   - Criar um cenário com um braço robo visto de cima que coloca objetos em determinadas posições
+   - Os objetos podem ser figuras coloridas ou objetos distintos ( maçã, banana )
+   - O cenário vai se afastando ( ficando menor ) quando a dificuldade vai aumentando
+   - Haverá ( ou não ) opções especiais que farão com que o robô perca velocidade
+   - Perde quando encher todo o cenário sem formar uma linha vertical ou horizontal
+   - Highscore baseado na quantidade de trocas
+   - 
+
+História
+   - 
+
+Regras
+   - 
