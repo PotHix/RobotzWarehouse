@@ -1,8 +1,16 @@
-TODO
+PotHix / CrociDB
+TODO list
 ----------------------------
 
  - Create the Click Identify thing
  - Change items thing
  - Verify if the user made the match
  - Make this thing bigger
- - FUck! I'm tired! =\
+ - Create the arm movement to the choosen place
+ - Draw a cool arm
+ - Draw the objects
+ - Draw cenario
+ - Draw places to the objects
+ - Write the roles on docs/ideas.txt
+ - Validate with team members
+ - 
