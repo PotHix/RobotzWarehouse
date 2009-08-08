@@ -18,7 +18,7 @@ void CApp::Init(int sw, int sh, char *title)
 	int depth, res;
         allegro_init();
 
-	set_config_file("../config.dbc");
+//	set_config_file("../config.dbc");
 
 	depth = desktop_color_depth();
 	if (depth == 0) depth = 32;
@@ -36,23 +36,6 @@ void CApp::Init(int sw, int sh, char *title)
 
 	if (res != 0) {
 		allegro_message(allegro_error);
-		exit(-1);
-	}
-
-	wide = get_config_int("gfx", "wide", -1);
-	if (wide == 0)
-	{
-	    tw = 640;
-	    th = 480;
-	}
-	else if (wide == 1)
-	{
-	    tw = 640;
-	    th = 400;
-	}
-	else
-	{
-	    allegro_message("Error to read config.dbc file.");
 		exit(-1);
 	}
 
