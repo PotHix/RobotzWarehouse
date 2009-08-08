@@ -1,0 +1,8 @@
+TODO
+----------------------------
+
+ - Create the Click Identify thing
+ - Change items thing
+ - Verify if the user made the match
+ - Make this thing bigger
+ - FUck! I'm tired! =\
