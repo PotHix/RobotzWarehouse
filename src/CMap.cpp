@@ -7,8 +7,8 @@
 #include "CMap.h"
 
 CMap::CMap(){
-   setWidth(2);
-   setHeight(2);
+   setWidth(4);
+   setHeight(4);
    
    setX(0);
    setY(0);
@@ -23,8 +23,8 @@ void CMap::show(BITMAP *buffer){
          circlefill(buffer, x+GET_I, y+GET_J, RADIUS, 0xFF0000);
 		 
 		 if (items[i][j] == EITEM_A) {
-			circlefill(buffer, x + GET_I, y + GET_J, 6, 0xFFAAAA);
-		 } else if (items[i][j] == EITEM_A) {
+			circlefill(buffer, x + GET_I, y + GET_J, 6, 0xCC00AA);
+		 } else if (items[i][j] == EITEM_B) {
 			circlefill(buffer, x + GET_I, y + GET_J, 6, 0xAAFFAA);
 		 }
 		 

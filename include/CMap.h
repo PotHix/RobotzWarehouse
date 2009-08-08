@@ -14,6 +14,8 @@
 #define GET_I			(i*(RADIUS * 1.3)*2) + RADIUS
 #define GET_J			(j*(RADIUS * 1.3)*2) + RADIUS
 
+#define MAX_ITEMS		2
+
 enum EItem
 {
    EITEM_NULL,

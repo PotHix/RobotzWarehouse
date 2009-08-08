@@ -77,10 +77,13 @@ void CGame::game_game()
 	}
 
 	if (key[KEY_SPACE])
-        {
-           Arm->armAction(Map);
-        }
+	{
+	   Arm->armAction(Map);
+	   rest(100);
+	}
 	
 	Map.show(App->GetBuffer());
+	
+	App->ShowMouse();
 }
 

@@ -12,7 +12,7 @@ CArm::CArm(){
    sprite = new AnimSprite();
 }
 
-void armAction(CMap &map){
+void CArm::armAction(CMap &map){
    int rx, ry;
    EItem** b;
    do{
@@ -20,7 +20,9 @@ void armAction(CMap &map){
       ry = rand() % map.getHeight();
       b = map.getMap();
    }while(b[rx][ry] != EITEM_NULL);
-   b[rx][ry] = EITEM_A;
+   
+   int type = (rand() % MAX_ITEMS) + 1;
+   b[rx][ry] = (EItem)type;
 }
 
 //Setters
