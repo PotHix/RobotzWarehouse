@@ -15,6 +15,8 @@ CMap::CMap(){
    setX(0);
    setY(0);
    
+   clicked = false;
+   
    center();
    initMatrix();
 }
@@ -32,6 +34,12 @@ void CMap::show(BITMAP *buffer){
 		 
       }
    }
+   
+   if (clicked)
+   {
+		circle(buffer, sel_x, sel_y, RADIUS, 0);
+   }
+   
 }
 
 void CMap::initMatrix(){
@@ -101,6 +109,22 @@ void CMap::update() {
 	{
 		for (int j = 0; j < height; j++)
 		{
+			// Clicked?
+			if (isClicked(i, j))
+			{
+				if (!clicked)
+				{
+					clicked = true;
+					sel_x = x + GET_I;
+					sel_y = y + GET_J;
+				}
+				else
+				{
+					clicked = false;
+				}
+			}
+		
+			// Is it empty?
 			if (items[i][j] != EITEM_NULL)
 			{
 				empty++;
@@ -112,4 +136,21 @@ void CMap::update() {
 	{
 		setFull(true);
 	}
+}
+
+bool CMap::isClicked(int i, int j)
+{
+	int px = x + GET_I;
+	int py = y + GET_J;
+	
+	if (Input.isMouseLeftClick())
+	{
+		if ((((px - mouse_x) * (px - mouse_x)) + ((py - mouse_y) * (py - mouse_y))) < ((2 * RADIUS) * (2 * RADIUS)))
+		{
+			// Clicked... =D
+			return true;
+		}
+	}
+	
+	return false;
 }

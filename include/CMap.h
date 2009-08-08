@@ -9,6 +9,8 @@
 
 #include <allegro.h>
 
+#include "CInput.h"
+
 #define RADIUS          15
 
 #define GET_I			(i*(RADIUS * 1.3)*2) + RADIUS
@@ -26,6 +28,8 @@ enum EItem
 class CMap
 {
    private:
+	  CInput Input;
+   
       EItem **items;
 
       int width, height;
@@ -33,6 +37,12 @@ class CMap
 	  int x, y;
 	  
 	  bool full;
+	  
+	  // Did the player clicked once?
+	  bool clicked;
+	  
+	  // These are for highlighting the current selected
+	  int sel_x, sel_y;
 
    public:
       CMap();
@@ -55,9 +65,13 @@ class CMap
 	  int getX();
 	  int getY();
 	  
+	  // Is the map already full?
 	  bool getFull();
 	  
+	  // Place the map in the center of the screen
 	  void center();	
+	  
+	  bool isClicked(int i, int j);
 	  
       EItem **getMap();
 
