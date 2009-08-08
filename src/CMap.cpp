@@ -23,7 +23,7 @@ void CMap::setHeight(int h){
 void CMap::show(BITMAP *buffer){
    for(int i=0; i < width; i++){
       for(int j=0; j< height; j++){
-         circlefill(buffer, (i*30)+20, (j*30)+20, 15, 0xFF0000);
+         circlefill(buffer, (i*RADIUS*2)+ (i == 0 ? RADIUS : RADIUS*2), (j*RADIUS*2)+ (j == 0 ? RADIUS : RADIUS*2), RADIUS, 0xFF0000);
       }
    }
 }
