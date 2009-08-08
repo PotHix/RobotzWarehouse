@@ -29,3 +29,15 @@ void CMap::initMatrix(){
       }
    }
 }
+
+void CMap::getMap(){
+   return items;
+}
+
+void CMap::getWidth(int w){
+   return width;
+}
+
+void CMap::getHeight(int h){
+   return height;
+}
