@@ -29,6 +29,11 @@
 	// App Manager
 	CApp *App;
 	
+	// Boolean
+	bool flow;
+	
+	// Buffer for double buffering
+	BITMAP *buffer;	
 	
  public:
  
@@ -36,8 +41,15 @@
 	
 	// Runs the game
 	void run();
+	
+	// One method for each game state
+	void game_open();
+	void game_menu();
+	void game_game();
  
  };
  
  
  #endif
+ 
+ 

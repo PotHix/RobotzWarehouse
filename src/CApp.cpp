@@ -16,9 +16,9 @@ void CApp::Init(int sw, int sh, char *title)
 	this->h = sh;
 
 	int depth, res;
-        allegro_init();
+    allegro_init();
 
-//	set_config_file("../config.dbc");
+	set_config_file("../config.dbc");
 
 	depth = desktop_color_depth();
 	if (depth == 0) depth = 32;
@@ -51,7 +51,7 @@ void CApp::Init(int sw, int sh, char *title)
 	// Para que os sorteios acontecam realmente
 	srand(time(NULL));
 
-        this->buffer = create_bitmap(tw, th);
+    CreateBuffer();
 
 	bmpMouse = load_bitmap("../media/mouse.bmp", NULL);
 }
@@ -61,17 +61,6 @@ void CApp::Init(char *title)
     allegro_init();
 
     set_config_file("config.dbc");
-
-	this->wide = get_config_int("gfx", "wide", 0);
-
-	if (wide == 1)
-	{
-	    this->Init(640, 400, title);
-	}
-	else
-	{
-	    this->Init(640, 480, title);
-	}
 
 	this->tw = 640;
     this->th = 480;
