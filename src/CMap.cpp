@@ -24,6 +24,12 @@ CMap::CMap(){
 }
 
 void CMap::show(BITMAP *buffer){
+		int i = width;
+		int j = height;
+		rectfill(buffer, x-RADIUS-5, y-RADIUS-5, x+GET_I-3, y+GET_J-10, 0xAAAAAA);
+		rectfill(buffer, x-RADIUS-5, y-RADIUS-5, x+GET_I-3, y-10, 0x444444);
+		rectfill(buffer, x-RADIUS-5, y-RADIUS-5, x-10, y+GET_J-10, 0x444444);
+
    for(int i=0; i < width; i++){
       for(int j=0; j< height; j++){
          //circlefill(buffer, x+GET_I, y+GET_J, RADIUS, 0xFF0000);
