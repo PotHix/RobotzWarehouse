@@ -8,12 +8,13 @@ Ideias para o projeto
    - Haverá ( ou não ) opções especiais que farão com que o robô perca velocidade
    - Perde quando encher todo o cenário sem formar uma linha vertical ou horizontal
    - Highscore baseado na quantidade de trocas
-   - 
 
 História
-   - Um robo é programado para cuidar de um armazem, e seu trabalho é sempre encher o armazem colocando <os objetos> nos lugares corretos
-   assim deixando o armazém fácil para se andar. O Robô escolhe sua própria ordem para colocar <os objetos> assim tentando criar uma ordem
+   - Um robo é programado para cuidar de um armazem, e seu trabalho é sempre encher o armazem colocando as caixas nos lugares corretos
+   assim deixando o armazém fácil para se andar. O Robô escolhe sua própria ordem para colocar as caixas os objetos> assim tentando criar uma ordem
    inovadora para que <os objetos> fiquem melhores dispostos. A visão do Robo nunca é uma das melhores, portanto cabe ao jogador organizar
-   da melhor maneira possível, assim ganhando pontos de acordo com as formas de disposição <dos objetos>
+   da melhor maneira possível, assim ganhando pontos de acordo com as formas de disposição das caixas.
 
 Regras
+   - O jogador passa para o próximo nível quando ele completa por meio de trocas uma fileira horizontal ou vertical
+   - O jogador perde se o Robô conseguir colocar todas as caixas dispostas de sua própria maneira antes que o jogador complete alguma fileira.
