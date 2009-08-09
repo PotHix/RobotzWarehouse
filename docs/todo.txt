@@ -8,3 +8,4 @@ TODO list
  - Draw cenario
  - Write the rules on docs/ideas.txt
  - Create a menu
+ - Refactor logic of robot arm to not do vertical or horizontal sequences
