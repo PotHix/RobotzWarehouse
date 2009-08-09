@@ -30,6 +30,8 @@
 	int dx, dy;
 	int rx, ry;
 	
+	int vel;
+	
 	int curr;
 	
 	CMap *map;

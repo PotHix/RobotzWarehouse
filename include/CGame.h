@@ -12,6 +12,7 @@
  #include "CApp.h"
  #include "CMap.h"
  #include "CArm.h"
+ #include "CTimer.h"
  
  #define FADE_TIME					5
  
@@ -46,6 +47,9 @@
 	
 	// Images =D
 	BITMAP *bmpOpen;
+	
+	// Timer
+	CTimer *timer;
 	
  public:
  

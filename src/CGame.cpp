@@ -28,36 +28,46 @@ CGame::CGame()
 	loadImages();
 	
 	Arm->getMap(&Map);
+	
+	// Initializing the timer
+	timer = new CTimer(16);
 }
 
 void CGame::run()
 {
 	// Ok... Main Looping
 	
+	timer->Start();
+	
 	while (flow)
 	{
-		App->ClearBuffer(0xFFFFFF);
-	
-		switch(game_status)
+		if (timer->getCount() > 0)
 		{
-			case GAME_OPEN:
-			{
-				game_open();
-				break;
-			}
-			case GAME_MENU:
-			{
-				game_menu();
-				break;
-			}
-			case GAME_GAME:
-			{
-				game_game();
-				break;
-			}
-		}
+			
+			App->ClearBuffer(0xFFFFFF);
 		
-		App->Refresh();
+			switch(game_status)
+			{
+				case GAME_OPEN:
+				{
+					game_open();
+					break;
+				}
+				case GAME_MENU:
+				{
+					game_menu();
+					break;
+				}
+				case GAME_GAME:
+				{
+					game_game();
+					break;
+				}
+			}
+			
+			App->Refresh();
+			timer->desc();
+		}
 	}
 	
 	exit(-1);
@@ -84,12 +94,6 @@ void CGame::game_game()
 	if (key[KEY_ESC])
 	{
 		flow = false;
-	}
-
-	if (key[KEY_SPACE])
-	{
-	   Arm->armAction();
-	   rest(100);
 	}
 	
 	if (key[KEY_A])

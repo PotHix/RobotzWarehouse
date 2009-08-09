@@ -16,6 +16,8 @@ CArm::CArm(){
    sprite[0] = load_bitmap("../media/arm.bmp", NULL);
    sprite[1] = load_bitmap("../media/arm2.bmp", NULL);
    
+   vel = 3;
+   
    curr = 0;
 }
 
@@ -87,15 +89,15 @@ void CArm::update()
 		{
 			if (x > dx)
 			{
-				x--;
+				x -= vel;
 			}
 			
 			if (y < dy)
 			{
-				y++;
+				y += vel;
 			}
 			
-			if (x == dx && y == dy)
+			if (x <= dx && y >= dy)
 			{
 				state = EAS_SET;
 			}
@@ -107,15 +109,15 @@ void CArm::update()
 		{
 			if (x < DEFAULT_X)
 			{
-				x++;
+				x += vel;
 			}
 			
 			if (y > DEFAULT_Y)
 			{
-				y--;
+				y -= vel;
 			}
 			
-			if (x == DEFAULT_X && y == DEFAULT_Y)
+			if (x >= DEFAULT_X && y <= DEFAULT_Y)
 			{
 				state = EAS_NULL;
 			}
