@@ -9,13 +9,15 @@
 CMap::CMap(){
 	full = false;
 
-   setWidth(3);
-   setHeight(3);
+   setWidth(4);
+   setHeight(4);
    
    setX(0);
    setY(0);
    
    clicked = false;
+   
+   loadImages();
    
    center();
    initMatrix();
@@ -24,12 +26,15 @@ CMap::CMap(){
 void CMap::show(BITMAP *buffer){
    for(int i=0; i < width; i++){
       for(int j=0; j< height; j++){
-         circlefill(buffer, x+GET_I, y+GET_J, RADIUS, 0xFF0000);
+         //circlefill(buffer, x+GET_I, y+GET_J, RADIUS, 0xFF0000);
+		 draw_sprite(buffer, elevation, x+GET_I-RADIUS, y+GET_J-RADIUS);
 		 
 		 if (items[i][j] == EITEM_A) {
-			circlefill(buffer, x + GET_I, y + GET_J, 6, 0xCC00AA);
+			//circlefill(buffer, x + GET_I, y + GET_J, 6, 0xCC00AA);
+			draw_sprite(buffer, box2, x + GET_I - 12, y + GET_J - 12);
 		 } else if (items[i][j] == EITEM_B) {
-			circlefill(buffer, x + GET_I, y + GET_J, 6, 0xAAFFAA);
+			//circlefill(buffer, x + GET_I, y + GET_J, 6, 0xAAFFAA);
+			draw_sprite(buffer, box, x + GET_I - 12, y + GET_J - 12);
 		 }
 		 
       }
@@ -39,7 +44,8 @@ void CMap::show(BITMAP *buffer){
    {
 		int i = sel_x;
 		int j = sel_y;
-		circle(buffer, x + GET_I, y + GET_J, RADIUS, 0);
+		//circle(buffer, x + GET_I, y + GET_J, RADIUS, 0);
+		draw_sprite(buffer, box_select, x + GET_I - 12, y + GET_J - 12);
    }
    
 }
@@ -125,11 +131,25 @@ void CMap::update() {
 	
 	for (int i = 0; i < width; i++)
 	{
+		int zz = 0;
+		int za = 0;
+		
 		for (int j = 0; j < height; j++)
 		{
+			// 
+			if (j != 0 && items[i][j] == items[i][j-1] && items[i][j] != EITEM_NULL)
+			{
+				zz++;
+			}
+			
+			if (i != 0 && items[i][j] == items[i-1][j] && items[i][j] != EITEM_NULL)
+			{
+				za++;
+			}
+		
 			// Clicked?
 			if (isClicked(i, j, clicked_x, clicked_y) && c == true)
-			{
+			{			
 				if (!clicked)
 				{
 					clicked = true;
@@ -156,7 +176,14 @@ void CMap::update() {
 				empty++;
 			}
 		}
+		
+		if (zz == width-1 || za == height-1)
+		{
+			increaseMap();
+		}
+		
 	}
+	
 	
 	if (a == 0 && clicked == true && c == true)
 	{
@@ -206,4 +233,8 @@ void CMap::increaseMap()
 
 void CMap::loadImages()
 {
+	elevation = load_bitmap("../media/elevation.bmp", NULL);
+	box = load_bitmap("../media/box.bmp", NULL);
+	box2 = load_bitmap("../media/box2.bmp", NULL);
+	box_select = load_bitmap("../media/box_select.bmp", NULL);
 }

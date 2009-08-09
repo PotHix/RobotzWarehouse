@@ -38,6 +38,12 @@ class CMap
 	  
 	  bool full;
 	  
+	  // Images
+	  BITMAP *elevation;
+	  BITMAP *box;
+	  BITMAP *box2;
+	  BITMAP *box_select;
+	  
 	  // Did the player clicked once?
 	  bool clicked;
 	  

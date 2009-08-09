@@ -21,7 +21,8 @@
  {
 	GAME_OPEN,
 	GAME_MENU,
-	GAME_GAME
+	GAME_GAME,
+	GAME_OVER
  };
  
  class CGame
@@ -41,13 +42,14 @@
 	BITMAP *buffer;	
 	
 	// Maps test
-	CMap Map;
+	CMap *Map;
 	
     CArm *Arm;
 	
 	// Images =D
 	BITMAP *bmpOpen;
 	BITMAP *bmpBackGame;
+	BITMAP *bmpGameOver;
 	
 	// Timer
 	CTimer *timer;
@@ -63,6 +65,7 @@
 	void game_open();
 	void game_menu();
 	void game_game();
+	void game_over();
 	
 	void loadImages();
  

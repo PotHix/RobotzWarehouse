@@ -16,7 +16,7 @@ CArm::CArm(){
    sprite[0] = load_bitmap("../media/arm.bmp", NULL);
    sprite[1] = load_bitmap("../media/arm2.bmp", NULL);
    
-   vel = 3;
+   vel = 6;
    
    curr = 0;
 }
@@ -77,6 +77,8 @@ void CArm::show(BITMAP *buffer)
 
 void CArm::update()
 {
+	vel = map->getWidth() * 2; 
+
 	switch(state)
 	{
 		case EAS_NULL:

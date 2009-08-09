@@ -13,6 +13,8 @@ CGame::CGame()
 	App = new CApp();
 	App->Init(800, 600, "GameJam 2009 - GamePlay");
 	
+	Map = new CMap();
+	
 	this->buffer = create_bitmap(800, 600);
 	
 	App->SetBuffer(buffer);
@@ -27,7 +29,7 @@ CGame::CGame()
 	// Load all bitmaps of the game =D
 	loadImages();
 	
-	Arm->getMap(&Map);
+	Arm->getMap(Map);
 	
 	// Initializing the timer
 	timer = new CTimer(16);
@@ -61,6 +63,11 @@ void CGame::run()
 				case GAME_GAME:
 				{
 					game_game();
+					break;
+				}
+				case GAME_OVER:
+				{
+					game_over();
 					break;
 				}
 			}
@@ -100,11 +107,16 @@ void CGame::game_game()
 	
 	if (key[KEY_A])
 	{
-		Map.increaseMap();
+		Map->increaseMap();
 	}
 	
-	Map.show(App->GetBuffer());
-	Map.update();
+	Map->show(App->GetBuffer());
+	Map->update();
+	
+	if (Map->getFull())
+	{
+		game_status = GAME_OVER;
+	}
 	
 	Arm->show(App->GetBuffer());
 	Arm->update();
@@ -112,9 +124,18 @@ void CGame::game_game()
 	App->ShowMouse();
 }
 
+void CGame::game_over()
+{
+	App->fadeOutToColor(FADE_TIME, 0xFFFFFF);
+	App->fadeInToColor(bmpGameOver, FADE_TIME, 0xFFFFFF);
+	rest(2000);
+	exit(-1);
+}
+
 void CGame::loadImages()
 {
 	bmpOpen = load_bitmap("../media/open.bmp", NULL);
 	bmpBackGame = load_bitmap("../media/back_game.bmp", NULL);
+	bmpGameOver = load_bitmap("../media/game_over.bmp", NULL);
 }
 
