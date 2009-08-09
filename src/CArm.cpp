@@ -64,5 +64,5 @@ int CArm::getY(){
 void CArm::show(BITMAP *buffer)
 {
 	textprintf_ex(buffer, font, 0, 0, 0, -1, "TEste");
-	sprite->run(buffer);
+	//sprite->run(buffer);
 }

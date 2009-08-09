@@ -17,7 +17,7 @@ CGame::CGame()
 	
 	App->SetBuffer(buffer);
 
-	game_status = GAME_GAME;
+	game_status = GAME_OPEN;
 	
 	// Maps test
         Arm = new CArm();
