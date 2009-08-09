@@ -148,7 +148,7 @@ void CMap::update() {
 				zz++;
 			}
 			
-			if (i != 0 && items[i][j] == items[i-1][j] && items[i][j] != EITEM_NULL)
+			if (j != 0 && items[j][i] == items[j-1][i] && items[j][i] != EITEM_NULL)
 			{
 				za++;
 			}

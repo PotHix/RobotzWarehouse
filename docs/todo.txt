@@ -2,10 +2,6 @@ PotHix / CrociDB
 TODO list
 ----------------------------
 
- - Verify if the user made the horizontal match
- - Draw cenario ( the hole )
- - Write the rules on docs/ideas.txt
  - Create a menu
- - Refactor logic of robot arm to not do vertical or horizontal sequences
  - Include a box on the robot arm
- - Include the logic to use just side boxes to change
+ - Refactor logic of robot arm to not do vertical or horizontal sequences
