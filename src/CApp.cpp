@@ -10,6 +10,12 @@
 
 #include <CApp.h>
 
+void sair()
+{
+	// ESC! ;)
+	key[KEY_ESC] = true;
+}END_OF_FUNCTION(sair)
+
 void CApp::Init(int sw, int sh, char *title)
 {
 	this->w = sw;
@@ -52,6 +58,9 @@ void CApp::Init(int sw, int sh, char *title)
 	srand(time(NULL));
 
     CreateBuffer();
+	
+	LOCK_FUNCTION(sair);
+	set_close_button_callback(sair);
 
 	bmpMouse = load_bitmap("../media/mouse.bmp", NULL);
 }
