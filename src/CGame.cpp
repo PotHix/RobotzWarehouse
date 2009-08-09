@@ -17,7 +17,7 @@ CGame::CGame()
 	
 	App->SetBuffer(buffer);
 
-	game_status = GAME_OPEN;
+	game_status = GAME_GAME;
 	
 	// Maps test
         Arm = new CArm();
@@ -26,6 +26,8 @@ CGame::CGame()
 	
 	// Load all bitmaps of the game =D
 	loadImages();
+	
+	Arm->getMap(&Map);
 }
 
 void CGame::run()
@@ -86,7 +88,7 @@ void CGame::game_game()
 
 	if (key[KEY_SPACE])
 	{
-	   Arm->armAction(Map);
+	   Arm->armAction();
 	   rest(100);
 	}
 	
@@ -99,6 +101,7 @@ void CGame::game_game()
 	Map.update();
 	
 	Arm->show(App->GetBuffer());
+	Arm->update();
 	
 	App->ShowMouse();
 }

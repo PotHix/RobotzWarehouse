@@ -7,7 +7,7 @@
  #ifndef _CARM_H_
  #define _CARM_H_
  
- #define DEFAULT_X		0
+ #define DEFAULT_X		800
  #define DEFAULT_Y		0
  
  #include <allegro.h>
@@ -15,15 +15,35 @@
  #include "CMap.h"
  #include "AnimSprite.h"
  
+ enum EArmState
+ {
+	EAS_NULL,
+	EAS_MOVE_GO,
+	EAS_MOVE_BA,
+	EAS_SET
+ };
+ 
  class CArm
  {
  private:
 	int x, y;
+	int dx, dy;
+	int rx, ry;
 	
-	AnimSprite *sprite;
+	int curr;
+	
+	CMap *map;
+	
+	int type;
+	
+	BITMAP *sprite[2];
+	 
+	EArmState state;
 	
  public:
 	CArm();
+	
+	void getMap(CMap *map);
 	
 	// Setters
 	void setX(int px);
@@ -33,9 +53,10 @@
 	int getX();
 	int getY();
 	
-	void armAction(CMap &map);
+	void armAction();
 	
 	void show(BITMAP *buffer);
+	void update();
  };
  
  
