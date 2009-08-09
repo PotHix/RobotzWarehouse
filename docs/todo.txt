@@ -5,10 +5,7 @@ TODO list
  - Verify if the user made the match
  - Make this thing bigger
  - Create the arm movement to the choosen place
- - Draw the objects
  - Draw cenario
- - Draw places to the objects
  - Write the rules on docs/ideas.txt
- - Validate with team members
  - Create a menu
- - Create Opening
+ - Refactor logic of robot arm to not do vertical or horizontal sequences
