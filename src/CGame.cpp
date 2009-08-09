@@ -23,6 +23,9 @@ CGame::CGame()
         Arm = new CArm();
 	
 	flow = true;
+	
+	// Load all bitmaps of the game =D
+	loadImages();
 }
 
 void CGame::run()
@@ -61,7 +64,12 @@ void CGame::run()
 
 void CGame::game_open()
 {
-	// Nada
+	clear_to_color(screen, 0xFFFFFF);
+	App->fadeInToColor(bmpOpen, FADE_TIME, 0xFFFFFF);
+	rest(3000);
+	App->fadeOutToColor(FADE_TIME, 0xFFFFFF);
+	game_status = GAME_GAME;
+	
 }
 
 void CGame::game_menu()
@@ -90,6 +98,13 @@ void CGame::game_game()
 	Map.show(App->GetBuffer());
 	Map.update();
 	
+	Arm->show(App->GetBuffer());
+	
 	App->ShowMouse();
+}
+
+void CGame::loadImages()
+{
+	bmpOpen = load_bitmap("../media/open.bmp", NULL);
 }
 

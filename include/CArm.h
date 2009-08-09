@@ -10,6 +10,8 @@
  #define DEFAULT_X		0
  #define DEFAULT_Y		0
  
+ #include <allegro.h>
+ 
  #include "CMap.h"
  #include "AnimSprite.h"
  

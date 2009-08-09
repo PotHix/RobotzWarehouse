@@ -13,6 +13,8 @@
  #include "CMap.h"
  #include "CArm.h"
  
+ #define FADE_TIME					5
+ 
  // This enum stores all the stats of the machine
  enum GameStatus
  {
@@ -40,7 +42,11 @@
 	// Maps test
 	CMap Map;
 	
-        CArm *Arm;
+    CArm *Arm;
+	
+	// Images =D
+	BITMAP *bmpOpen;
+	
  public:
  
 	CGame();
@@ -52,6 +58,8 @@
 	void game_open();
 	void game_menu();
 	void game_game();
+	
+	void loadImages();
  
  };
  
