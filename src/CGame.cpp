@@ -82,6 +82,11 @@ void CGame::game_game()
 	   rest(100);
 	}
 	
+	if (key[KEY_A])
+	{
+		Map.increaseMap();
+	}
+	
 	Map.show(App->GetBuffer());
 	Map.update();
 	

@@ -184,9 +184,22 @@ bool CMap::isClicked(int i, int j, int cx, int cy)
 }
 
 void CMap::swap(int a, int b, int c, int d)
-{
-	//allegro_message("First: %d,%d - Second: %d,%d", a, b, c, d);
+{	
+	if (items[a][b] == EITEM_NULL || items[c][d] == EITEM_NULL)
+	{
+		return;
+	}
+	
 	EItem tmp = items[a][b];
 	items[a][b] = items[c][d];
 	items[c][d] = tmp;
+}
+
+void CMap::increaseMap()
+{
+	width++;
+	height++;
+	
+	center();
+	initMatrix();
 }

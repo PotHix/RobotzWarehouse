@@ -76,6 +76,8 @@ class CMap
 	  
 	  bool isClicked(int i, int j, int cx, int cy);
 	  
+	  void increaseMap();
+	  
       EItem **getMap();
 
       void show(BITMAP *buffer);
