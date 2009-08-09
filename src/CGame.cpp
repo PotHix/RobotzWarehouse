@@ -91,6 +91,8 @@ void CGame::game_menu()
 
 void CGame::game_game()
 {
+	blit(bmpBackGame, App->GetBuffer(), 0, 0, 0, 0, 800, 600);
+
 	if (key[KEY_ESC])
 	{
 		flow = false;
@@ -113,5 +115,6 @@ void CGame::game_game()
 void CGame::loadImages()
 {
 	bmpOpen = load_bitmap("../media/open.bmp", NULL);
+	bmpBackGame = load_bitmap("../media/back_game.bmp", NULL);
 }
 

@@ -47,6 +47,7 @@
 	
 	// Images =D
 	BITMAP *bmpOpen;
+	BITMAP *bmpBackGame;
 	
 	// Timer
 	CTimer *timer;

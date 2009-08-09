@@ -203,3 +203,7 @@ void CMap::increaseMap()
 	center();
 	initMatrix();
 }
+
+void CMap::loadImages()
+{
+}

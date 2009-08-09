@@ -79,6 +79,8 @@ class CMap
 	  void increaseMap();
 	  
       EItem **getMap();
+	  
+	  void loadImages();
 
       void show(BITMAP *buffer);
 	  
