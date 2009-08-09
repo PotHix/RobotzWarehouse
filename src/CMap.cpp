@@ -46,7 +46,7 @@ void CMap::show(BITMAP *buffer){
       }
    }
    
-   if (clicked)
+   if (clicked && items[sel_x][sel_y] != EITEM_NULL)
    {
 		int i = sel_x;
 		int j = sel_y;
@@ -223,9 +223,26 @@ void CMap::swap(int a, int b, int c, int d)
 		return;
 	}
 	
-	EItem tmp = items[a][b];
-	items[a][b] = items[c][d];
-	items[c][d] = tmp;
+	if (a == c)
+	{
+		int dis = ((d-b)<0?-(d-b):(d-b));
+		if (dis == 1)
+		{
+			EItem tmp = items[a][b];
+			items[a][b] = items[c][d];
+			items[c][d] = tmp;
+		}
+	}
+	else if(b == d)
+	{
+		int dis = ((a-c)<0?-(a-c):(a-c));
+		if (dis == 1)
+		{
+			EItem tmp = items[a][b];
+			items[a][b] = items[c][d];
+			items[c][d] = tmp;
+		}
+	}
 }
 
 void CMap::increaseMap()
