@@ -9,8 +9,8 @@
 CMap::CMap(){
 	full = false;
 
-   setWidth(14);
-   setHeight(14);
+   setWidth(3);
+   setHeight(3);
    
    setX(0);
    setY(0);
@@ -37,7 +37,9 @@ void CMap::show(BITMAP *buffer){
    
    if (clicked)
    {
-		circle(buffer, sel_x, sel_y, RADIUS, 0);
+		int i = sel_x;
+		int j = sel_y;
+		circle(buffer, x + GET_I, y + GET_J, RADIUS, 0);
    }
    
 }
@@ -105,23 +107,47 @@ bool CMap::getFull(){
 void CMap::update() {
 	int empty = 0;
 	
+	int clicked_x = -1, clicked_y = -1;
+	bool c = false;
+	
+	if (Input.isMouseLeftClick())
+	{	 		
+		clicked_x = mouse_x;
+		clicked_y = mouse_y;
+		c = true;
+	}
+	else
+	{
+		c = false;
+	}
+	
+	int a = 0;
+	
 	for (int i = 0; i < width; i++)
 	{
 		for (int j = 0; j < height; j++)
 		{
 			// Clicked?
-			if (isClicked(i, j))
+			if (isClicked(i, j, clicked_x, clicked_y) && c == true)
 			{
 				if (!clicked)
 				{
 					clicked = true;
-					sel_x = x + GET_I;
-					sel_y = y + GET_J;
+					sel_x = i;
+					sel_y = j;
 				}
 				else
 				{
+					if (clicked_x != -1 && clicked_y != -1)
+					{
+						swap(sel_x, sel_y, i, j);
+						clicked_x = -1;
+						clicked_y = -1;
+					}
+					
 					clicked = false;
 				}
+				a++;
 			}
 		
 			// Is it empty?
@@ -132,25 +158,35 @@ void CMap::update() {
 		}
 	}
 	
+	if (a == 0 && clicked == true && c == true)
+	{
+		clicked == false;
+	}
+	
 	if (empty == width * height)
 	{
 		setFull(true);
 	}
 }
 
-bool CMap::isClicked(int i, int j)
+bool CMap::isClicked(int i, int j, int cx, int cy)
 {
 	int px = x + GET_I;
 	int py = y + GET_J;
 	
-	if (Input.isMouseLeftClick())
+	if ((((px - cx) * (px - cx)) + ((py - cy) * (py - cy))) < ((2 * RADIUS) * (2 * RADIUS)))
 	{
-		if ((((px - mouse_x) * (px - mouse_x)) + ((py - mouse_y) * (py - mouse_y))) < ((2 * RADIUS) * (2 * RADIUS)))
-		{
-			// Clicked... =D
-			return true;
-		}
+		// Clicked... =D
+		return true;
 	}
 	
 	return false;
+}
+
+void CMap::swap(int a, int b, int c, int d)
+{
+	//allegro_message("First: %d,%d - Second: %d,%d", a, b, c, d);
+	EItem tmp = items[a][b];
+	items[a][b] = items[c][d];
+	items[c][d] = tmp;
 }

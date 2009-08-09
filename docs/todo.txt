@@ -11,6 +11,6 @@ TODO list
  - Draw the objects
  - Draw cenario
  - Draw places to the objects
- - Write the roles on docs/ideas.txt
+ - Write the rules on docs/ideas.txt
  - Validate with team members
  - 

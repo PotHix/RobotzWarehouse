@@ -26,11 +26,13 @@ bool CInput::isMouseLeftClick()
 	{
 		fMouseLeft = false;
 	}
+	
+	return false;
 }
 
 bool CInput::isMouseRightClick()
 {
-	if (mouse_b & 1)
+	if (mouse_b & 2)
 	{
 		if (!fMouseRight)
 		{

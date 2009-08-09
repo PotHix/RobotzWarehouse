@@ -71,7 +71,10 @@ class CMap
 	  // Place the map in the center of the screen
 	  void center();	
 	  
-	  bool isClicked(int i, int j);
+	  // Swap the values
+	  void swap(int a, int b, int c, int d);
+	  
+	  bool isClicked(int i, int j, int cx, int cy);
 	  
       EItem **getMap();
 
