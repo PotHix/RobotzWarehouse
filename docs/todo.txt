@@ -2,15 +2,13 @@ PotHix / CrociDB
 TODO list
 ----------------------------
 
- - Create the Click Identify thing
- - Change items thing
  - Verify if the user made the match
  - Make this thing bigger
  - Create the arm movement to the choosen place
- - Draw a cool arm
  - Draw the objects
  - Draw cenario
  - Draw places to the objects
  - Write the rules on docs/ideas.txt
  - Validate with team members
- - 
+ - Create a menu
+ - Create Opening
