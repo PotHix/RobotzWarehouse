@@ -9,4 +9,3 @@ TODO list
  - Refactor logic of robot arm to not do vertical or horizontal sequences
  - Include a box on the robot arm
  - Include the logic to use just side boxes to change
- - Make the close button to work
