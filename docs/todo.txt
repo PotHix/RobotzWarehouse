@@ -2,6 +2,4 @@ PotHix / CrociDB
 TODO list
 ----------------------------
 
- - Create a menu
- - Include a box on the robot arm
  - Refactor logic of robot arm to not do vertical or horizontal sequences
