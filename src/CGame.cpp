@@ -19,7 +19,7 @@ CGame::CGame()
 	
 	App->SetBuffer(buffer);
 
-	game_status = GAME_GAME;
+	game_status = GAME_OPEN;
 	
 	// Maps test
         Arm = new CArm();
@@ -27,12 +27,14 @@ CGame::CGame()
 	flow = true;
 	
 	// Load all bitmaps of the game =D
-	loadImages();
+	loadMedia();
 	
 	Arm->getMap(Map);
 	
 	// Initializing the timer
 	timer = new CTimer(16);
+	
+	op = 0;
 }
 
 void CGame::run()
@@ -70,6 +72,11 @@ void CGame::run()
 					game_over();
 					break;
 				}
+				default:
+				{
+					flow = false;
+					break;
+				}
 			}
 			
 			App->Refresh();
@@ -87,13 +94,56 @@ void CGame::game_open()
 	App->fadeInToColor(bmpOpen, FADE_TIME, 0xFFFFFF);
 	rest(3000);
 	App->fadeOutToColor(FADE_TIME, 0xFFFFFF);
-	game_status = GAME_GAME;
+	game_status = GAME_MENU;
+	timer->Reset();
+	play_midi(midi_menu, 1);
 	
 }
 
 void CGame::game_menu()
 {
-	// Nada
+	blit(bmpBackMenu, App->GetBuffer(), 0, 0, 0, 0, 800, 600);
+	
+	if (key[KEY_ESC] || (mouse_b & 1 && op == 1 && mouse_y < 445))
+	{
+		game_status = GAME_FAIL;
+	}
+	
+	if (op == 0)
+	{
+		ax = 390;
+		ay = 303;
+	}
+	else if (op == 1)
+	{
+		ax = 390;
+		ay = 388;
+	}
+	
+	if (mouse_y < 375)
+	{
+		op = 0;
+	}
+	else
+	{
+		op = 1;
+	}
+	
+	if (mouse_b & 1 && mouse_y > 300)
+	{
+		if (op == 0)
+		{
+			App->fadeOutToColor(FADE_TIME, 0xFFFFFF);
+			App->ClearBuffer(0x000000);
+			game_status = GAME_GAME;
+			timer->Reset();
+			play_midi(midi_game, 1);
+		}
+	}
+	
+	draw_sprite(App->GetBuffer(), arrow, ax, ay);
+	
+	App->ShowMouse();
 }
 
 void CGame::game_game()
@@ -103,11 +153,6 @@ void CGame::game_game()
 	if (key[KEY_ESC])
 	{
 		flow = false;
-	}
-	
-	if (key[KEY_A])
-	{
-		Map->increaseMap();
 	}
 	
 	Map->show(App->GetBuffer());
@@ -132,10 +177,16 @@ void CGame::game_over()
 	exit(-1);
 }
 
-void CGame::loadImages()
+void CGame::loadMedia()
 {
 	bmpOpen = load_bitmap("../media/open.bmp", NULL);
 	bmpBackGame = load_bitmap("../media/back_game.bmp", NULL);
+	bmpBackMenu = load_bitmap("../media/back_menu.bmp", NULL);
 	bmpGameOver = load_bitmap("../media/game_over.bmp", NULL);
+	
+	arrow = load_bitmap("../media/arrow.bmp", NULL);
+	
+	midi_game = load_midi("../media/unbal.mid");
+	midi_menu = load_midi("../media/harestwav.mid");
 }
 

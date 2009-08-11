@@ -71,7 +71,13 @@ int CArm::getY(){
 }
 
 void CArm::show(BITMAP *buffer)
-{
+{	
+	if (state == EAS_MOVE_GO)
+	{
+		
+		map->drawBoxesOnHand(buffer, x+25, y+14, type);
+	}
+	
 	draw_sprite(buffer, sprite[curr], x, y);
 }
 

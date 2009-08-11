@@ -24,6 +24,8 @@ CMap::CMap(){
 }
 
 void CMap::show(BITMAP *buffer){
+	textprintf_ex(buffer, font, 10, 10, 1, -1, "Level: %d", (width - 3));
+
 		int i = width;
 		int j = height;
 		rectfill(buffer, x-RADIUS-5, y-RADIUS-5, x+GET_I-3, y+GET_J-10, 0xAAAAAA);
@@ -260,4 +262,12 @@ void CMap::loadImages()
 	box = load_bitmap("../media/box.bmp", NULL);
 	box2 = load_bitmap("../media/box2.bmp", NULL);
 	box_select = load_bitmap("../media/box_select.bmp", NULL);
+}
+
+void CMap::drawBoxesOnHand(BITMAP *buffer, int x, int y, int i)
+{
+	if (i == EITEM_B)
+		draw_sprite(buffer, box, x, y);
+	else
+		draw_sprite(buffer, box2, x, y);
 }

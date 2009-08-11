@@ -22,7 +22,8 @@
 	GAME_OPEN,
 	GAME_MENU,
 	GAME_GAME,
-	GAME_OVER
+	GAME_OVER,
+	GAME_FAIL
  };
  
  class CGame
@@ -50,6 +51,16 @@
 	BITMAP *bmpOpen;
 	BITMAP *bmpBackGame;
 	BITMAP *bmpGameOver;
+	BITMAP *bmpBackMenu;
+	BITMAP *arrow;
+	
+	// A - Arrow ;)
+	int ax, ay;
+	int op;
+	
+	// Music
+	MIDI *midi_menu;
+	MIDI *midi_game;
 	
 	// Timer
 	CTimer *timer;
@@ -67,7 +78,7 @@
 	void game_game();
 	void game_over();
 	
-	void loadImages();
+	void loadMedia();
  
  };
  

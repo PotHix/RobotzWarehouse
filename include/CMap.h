@@ -86,6 +86,8 @@ class CMap
 	  
       EItem **getMap();
 	  
+	  void drawBoxesOnHand(BITMAP *buffer, int x, int y, int i);
+	  
 	  void loadImages();
 
       void show(BITMAP *buffer);
