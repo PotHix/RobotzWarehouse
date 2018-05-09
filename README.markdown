@@ -3,6 +3,8 @@ RobotzWarehouse
 
 RobotzWarehouse was created for the "Itau cultural gamejam".
 
+![Robotz Warehouse game for Itau Gamejam 2009](https://pothix.com/images/coding/robotzwarehouse.jpg)
+
 Disclaimer
 ----------
 
